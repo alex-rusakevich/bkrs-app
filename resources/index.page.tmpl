@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>bkrs-app</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    </head>
+
+    <body>
+        <div>
+            <header>
+                <h2>Настройки</h2>
+            </header>
+
+            <div id="features">
+                <h3>Функции</h3>
+                {{range $i, $element := .Features}}
+                    <p>{{$element.Name}}</p>
+
+                    {{if $element.Value}}
+                        <div class="radio-button-cluster" feature="{{$element.Name}}">
+                            <input type="radio" id="feature-true-{{$i}}"
+                                   name="feature-tf-{{$i}}" value="true" checked="true">
+                            <label for="feature-true-{{$i}}">true</label>
+
+                            <input type="radio" id="feature-false-{{$i}}"
+                                   name="feature-tf-{{$i}}" value="false">
+                            <label for="feature-false-{{$i}}">false</label>
+                        </div>
+                    {{else}}
+                        <div class="radio-button-cluster" feature="{{$element.Name}}">
+                            <input type="radio" id="feature-true-{{$i}}"
+                                   name="feature-tf-{{$i}}" value="true">
+                            <label for="feature-true-{{$i}}">true</label>
+
+                            <input type="radio" id="feature-false-{{$i}}"
+                                   name="feature-tf-{{$i}}" value="false" checked="true">
+                            <label for="feature-false-{{$i}}">false</label>
+                        </div>
+                    {{end}}
+                {{end}}
+            </div>
+
+            <hr>
+
+            <div id="shortcut">
+                <h3>Сочетания клавиш</h3>
+                {{range $i, $element := .Shortcuts}}
+                    <span>{{$element.Name}}: </span>
+                    <input type="text" size="15" value="{{$element.Value}}" feature="{{$element.Name}}">
+                {{end}}
+            </div>
+
+            <hr>
+
+            <footer>
+                <button id="save-button">Сохранить</button>
+                <p class="hint">Требуется перезагрузка программы</p>
+                <button id="to-main-page">На главную</button>
+                <p class="hint">Все несохраненные изменения будут стетры.</p>
+
+                <p id="author">Программа создана Александром Русакевичем, студентом факультета китайского языка
+                    и культуры МГЛУ</p>
+                <p id="version">bkrs-app версии {{.Version}}</p>
+            </footer>
+        </div>
+
+        <script src="static/js/jquery-3.6.0.min.js"></script>
+        <script src="static/js/settings.js"></script>
+    </body>
+</html>

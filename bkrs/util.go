@@ -18,6 +18,7 @@ func ReadFileIntoString(filePath string) string {
 
 type Config struct {
 	Features struct {
+		Settings                       bool `json:"settings"`
 		TopMenu                        bool `json:"topMenu"`
 		NoAds                          bool `json:"noAds"`
 		FocusOnInput                   bool `json:"focusOnInput"`
@@ -59,4 +60,14 @@ func GetKeysByFeatureName(featureName string) (string, error) {
 	r := reflect.ValueOf(globalConfig)
 	f := reflect.Indirect(r).FieldByName("Shortcuts").FieldByName(strings.Title(featureName))
 	return string(f.String()), nil
+}
+
+func SetFeatureState(featureName string, newState bool) {
+	r := reflect.ValueOf(&globalConfig)
+	reflect.Indirect(r).FieldByName("Features").FieldByName(strings.Title(featureName)).SetBool(newState)
+}
+
+func SetKeys(featureName string, newKeys string) {
+	r := reflect.ValueOf(&globalConfig)
+	reflect.Indirect(r).FieldByName("Shortcuts").FieldByName(strings.Title(featureName)).SetString(newKeys)
 }

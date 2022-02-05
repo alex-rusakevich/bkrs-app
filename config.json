@@ -1,5 +1,6 @@
 {
   "features": {
+    "settings": true,
     "topMenu": true,
     "noAds": true,
     "focusOnInput": true,

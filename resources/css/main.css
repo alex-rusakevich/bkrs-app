@@ -1,0 +1,16 @@
+p.hint {
+    font-style: italic;
+}
+
+* {
+    font-family: Arial;
+}
+
+footer {
+    margin-top: 10px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid black;
+}

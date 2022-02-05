@@ -107,10 +107,18 @@ function searchSelectedOnShortcut(){
     });
 }
 
+function settings() {
+    $("a").each(function () {
+        if($(this).text() == "Меню ▼"){
+            $(this).parent().children("ul.nav_dropdown").append("<li><a href='http://localhost:7838/'>bkrs-app</a></li>");
+        }
+    });
+}
+
 window.addEventListener('DOMContentLoaded', function () {
     (async function() {
         var featureList = [
-            "topMenu", "noAds", "focusOnInput", "chineseCharMouseWheelClick",
+            "settings", "topMenu", "noAds", "focusOnInput", "chineseCharMouseWheelClick",
             "handwritingButtonAlwaysVisible", "searchSelectedOnShortcut"
         ]
         for (var featureNumber in featureList) {

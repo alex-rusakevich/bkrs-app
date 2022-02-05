@@ -19,7 +19,14 @@ func main() {
 	bkrs.LoadConfig()
 	w.Bind("isFeatureEnabled", bkrs.IsFeatureEnabled)
 	w.Bind("getKeysByFeatureName", bkrs.GetKeysByFeatureName)
+	w.Bind("setKeys", bkrs.SetKeys)
+	w.Bind("setFeatureState", bkrs.SetFeatureState)
 	defer bkrs.SaveConfig()
+
+	settingsEnabled, _ := bkrs.IsFeatureEnabled("settings")
+	if settingsEnabled {
+		go bkrs.RunSettingsServer()
+	}
 
 	bkrs.MoveAppWindow(win.GetSystemMetrics(win.SM_CXSCREEN)-(defaultW+defaultW/2),
 		win.GetSystemMetrics(win.SM_CYSCREEN)/2-defaultH/2)
