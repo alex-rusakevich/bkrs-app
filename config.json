@@ -1,0 +1,13 @@
+{
+  "features": {
+    "topMenu": true,
+    "noAds": true,
+    "focusOnInput": true,
+    "chineseCharMouseWheelClick": true,
+    "handwritingButtonAlwaysVisible": true,
+    "searchSelectedOnShortcut": true
+  },
+  "shortcuts": {
+    "searchSelectedOnShortcut": "alt+f"
+  }
+}
