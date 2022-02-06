@@ -8,9 +8,11 @@
     "handwritingButtonAlwaysVisible": true,
     "searchSelectedOnShortcut": true,
     "adaptiveScrollbarColor": true,
-    "disableBrowserAutocomplete": true
+    "disableBrowserAutocomplete": true,
+    "strokeOrderSearch": true
   },
   "shortcuts": {
-    "searchSelectedOnShortcut": "alt+s"
+    "searchSelectedOnShortcut": "alt+s",
+    "strokeOrderSearch": "alt+w"
   }
 }

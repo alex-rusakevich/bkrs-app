@@ -27,10 +27,12 @@ type Config struct {
 		SearchSelectedOnShortcut       bool `json:"searchSelectedOnShortcut"`
 		AdaptiveScrollbarColor         bool `json:"adaptiveScrollbarColor"`
 		DisableBrowserAutocomplete     bool `json:"disableBrowserAutocomplete"`
+		StrokeOrderSearch              bool `json:"strokeOrderSearch"`
 	} `json:"features"`
 
 	Shortcuts struct {
 		SearchSelectedOnShortcut string `json:"searchSelectedOnShortcut"`
+		StrokeOrderSearch        string `json:"strokeOrderSearch"`
 	} `json:"shortcuts"`
 }
 

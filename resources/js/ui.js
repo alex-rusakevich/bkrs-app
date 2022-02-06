@@ -135,11 +135,37 @@ function disableBrowserAutocomplete() {
     $("input").attr("autocomplete", "off");
 }
 
-window.addEventListener('DOMContentLoaded', function () {
+function strokeOrderSearch() {
+    $.getScript("https://cdnjs.cloudflare.com/ajax/libs/jquery.hotkeys/0.2.0/jquery.hotkeys.min.js",
+        function(data, textStatus, jqxhr) {
+            (async function(){
+                var shortcut = await getKeysByFeatureName("strokeOrderSearch");
+
+                $(document).bind("keydown", shortcut, function () {
+                    var adress = ("https://www.chinesehideout.com/tools/strokeorder/index.php?c=" +
+                        window.getSelection().toString().trim());
+                    window.location.href = adress;
+                });
+            })();
+        });
+
+    if(/.*chinesehideout.com\/.*/.test(window.location.href)) {
+        $("h3.panel-title").each(function (){
+            if($(this).text() === "Character Animation"){
+                $(this).parent().parent().attr("id", "scrollTo");
+                location.hash = "#" + "scrollTo";
+                window.scrollBy(0, -60);
+            }
+        });
+    }
+}
+
+window.addEventListener("DOMContentLoaded", function () {
     (async function() {
         var featureList = [
             "adaptiveScrollbarColor", "topMenu", "noAds", "focusOnInput", "chineseCharMouseWheelClick",
-            "handwritingButtonAlwaysVisible", "searchSelectedOnShortcut", "settings", "disableBrowserAutocomplete"
+            "handwritingButtonAlwaysVisible", "searchSelectedOnShortcut", "settings", "disableBrowserAutocomplete",
+            "strokeOrderSearch"
         ]
         for (var featureNumber in featureList) {
             var feature = featureList[featureNumber];
