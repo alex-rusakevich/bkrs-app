@@ -115,10 +115,26 @@ function settings() {
     });
 }
 
+function adaptiveScrollbarColor() {
+    $("body").append(`<style>
+        body[class="dark"]::-webkit-scrollbar {
+            background: #18181a;
+        }
+        
+        body[class="dark"]::-webkit-scrollbar-track {
+            background: #18181a;
+        }
+        
+        body[class="dark"]::-webkit-scrollbar-thumb {
+            background-color: #727274;
+        }
+    </style>`);
+}
+
 window.addEventListener('DOMContentLoaded', function () {
     (async function() {
         var featureList = [
-            "settings", "topMenu", "noAds", "focusOnInput", "chineseCharMouseWheelClick",
+            "settings", "topMenu", "noAds", "adaptiveScrollbarColor", "focusOnInput", "chineseCharMouseWheelClick",
             "handwritingButtonAlwaysVisible", "searchSelectedOnShortcut"
         ]
         for (var featureNumber in featureList) {

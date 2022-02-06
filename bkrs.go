@@ -16,6 +16,8 @@ func main() {
 	w := webview.New(debug)
 	defer w.Destroy()
 
+	bkrs.InitGUI(w.Window())
+
 	bkrs.LoadConfig()
 	w.Bind("isFeatureEnabled", bkrs.IsFeatureEnabled)
 	w.Bind("getKeysByFeatureName", bkrs.GetKeysByFeatureName)
@@ -32,7 +34,7 @@ func main() {
 		win.GetSystemMetrics(win.SM_CYSCREEN)/2-defaultH/2)
 
 	bkrs.MakeWindowAlwaysOnTop()
-	go bkrs.MinimizeOnShortcut(w.Window())
+	go bkrs.MinimizeOnShortcut()
 
 	w.Init(bkrs.ReadFileIntoString("./resources/js/ui.js"))
 

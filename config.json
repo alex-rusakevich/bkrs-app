@@ -6,7 +6,8 @@
     "focusOnInput": true,
     "chineseCharMouseWheelClick": true,
     "handwritingButtonAlwaysVisible": true,
-    "searchSelectedOnShortcut": true
+    "searchSelectedOnShortcut": true,
+    "adaptiveScrollbarColor": true
   },
   "shortcuts": {
     "searchSelectedOnShortcut": "alt+f"

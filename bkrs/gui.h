@@ -1,16 +1,22 @@
+#define WIN32_LEAN_AND_MEAN
+
 #include <windows.h>
 #include <winuser.h>
-#include <uxtheme.h>
 #include <stdio.h>
 
 #define MOD_NOREPEAT 0x4000
 
+HWND hwnd;
+
+static inline void initGUI(HWND hwndIn) {
+    hwnd = hwndIn;
+}
+
 static inline void moveAppWindow(int x, int y) {
-	SetWindowPos(GetActiveWindow(), 0, x, y, 0, 0, SWP_NOSIZE);
+	SetWindowPos(hwnd, 0, x, y, 0, 0, SWP_NOSIZE);
 }
 
 static inline void makeWindowAlwaysOnTop() {
-	HWND hwnd = GetActiveWindow();
 	SetWindowPos(hwnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE);
 }
 
@@ -20,11 +26,11 @@ static inline void loadIcon() {
     smallIcon = (HICON)LoadImageA(0, "icon.ico", IMAGE_ICON, 16, 16, LR_LOADFROMFILE);
     bigIcon = (HICON)LoadImageA(0, "icon.ico", IMAGE_ICON, 32, 32, LR_LOADFROMFILE);
 
-    SendMessage(GetActiveWindow(), WM_SETICON, ICON_BIG, (LPARAM)bigIcon);
-	SendMessage(GetActiveWindow(), WM_SETICON, ICON_SMALL, (LPARAM)smallIcon);
+    SendMessage(hwnd, WM_SETICON, ICON_BIG, (LPARAM)bigIcon);
+	SendMessage(hwnd, WM_SETICON, ICON_SMALL, (LPARAM)smallIcon);
 }
 
-static inline void minimizeOnShortcut(HWND hwnd) {
+static inline void minimizeOnShortcut() {
     RegisterHotKey(NULL, 1, MOD_ALT | MOD_NOREPEAT, 0x53); // Alt+S
 
     MSG msg = {0};

@@ -25,6 +25,7 @@ type Config struct {
 		ChineseCharMouseWheelClick     bool `json:"chineseCharMouseWheelClick"`
 		HandwritingButtonAlwaysVisible bool `json:"handwritingButtonAlwaysVisible"`
 		SearchSelectedOnShortcut       bool `json:"searchSelectedOnShortcut"`
+		AdaptiveScrollbarColor         bool `json:"adaptiveScrollbarColor"`
 	} `json:"features"`
 
 	Shortcuts struct {
