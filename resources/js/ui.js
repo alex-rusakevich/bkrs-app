@@ -131,11 +131,15 @@ function adaptiveScrollbarColor() {
     </style>`);
 }
 
+function disableBrowserAutocomplete() {
+    $("input").attr("autocomplete", "off");
+}
+
 window.addEventListener('DOMContentLoaded', function () {
     (async function() {
         var featureList = [
-            "settings", "topMenu", "noAds", "adaptiveScrollbarColor", "focusOnInput", "chineseCharMouseWheelClick",
-            "handwritingButtonAlwaysVisible", "searchSelectedOnShortcut"
+            "adaptiveScrollbarColor", "topMenu", "noAds", "focusOnInput", "chineseCharMouseWheelClick",
+            "handwritingButtonAlwaysVisible", "searchSelectedOnShortcut", "settings", "disableBrowserAutocomplete"
         ]
         for (var featureNumber in featureList) {
             var feature = featureList[featureNumber];

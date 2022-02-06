@@ -1,7 +1,3 @@
-$("#to-main-page").click(function () {
-    window.location.href = "https://bkrs.info"
-});
-
 $("#save-button").click(function () {
     $("div.radio-button-cluster").each(async function () {
         if($(this).children("input[value='true']").is(':checked')) {

@@ -3,7 +3,8 @@ p.hint {
 }
 
 * {
-    font-family: Arial;
+    font-family: verdana, arial;
+    font-size: 12pt;
 }
 
 footer {
@@ -13,4 +14,31 @@ footer {
 hr {
     border: 0;
     border-top: 1px solid black;
+}
+
+header {
+    justify-content: center;
+    text-align: center;
+}
+
+a {
+    color: darkblue;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+a:visited {
+    color: darkblue;
+    text-decoration: none;
+}
+
+input[type="text"] {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 97%;
+    max-width: 512px;
+}
+
+p {
+    margin-bottom: 7px;
 }

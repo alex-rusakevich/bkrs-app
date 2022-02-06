@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	defaultW = 430
+	defaultW = 420
 	defaultH = 550
 )
 

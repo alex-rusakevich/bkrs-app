@@ -7,9 +7,10 @@
     "chineseCharMouseWheelClick": true,
     "handwritingButtonAlwaysVisible": true,
     "searchSelectedOnShortcut": true,
-    "adaptiveScrollbarColor": true
+    "adaptiveScrollbarColor": true,
+    "disableBrowserAutocomplete": true
   },
   "shortcuts": {
-    "searchSelectedOnShortcut": "alt+f"
+    "searchSelectedOnShortcut": "alt+s"
   }
 }

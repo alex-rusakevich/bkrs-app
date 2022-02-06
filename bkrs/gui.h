@@ -5,6 +5,7 @@
 #include <stdio.h>
 
 #define MOD_NOREPEAT 0x4000
+#define TOGGLE_MINIMIZE_KEYS MOD_ALT | MOD_NOREPEAT, 0x44 /* Alt+D */
 
 HWND hwnd;
 
@@ -31,7 +32,7 @@ static inline void loadIcon() {
 }
 
 static inline void minimizeOnShortcut() {
-    RegisterHotKey(NULL, 1, MOD_ALT | MOD_NOREPEAT, 0x53); // Alt+S
+    RegisterHotKey(NULL, 1, TOGGLE_MINIMIZE_KEYS); // Alt+A
 
     MSG msg = {0};
     while (GetMessage(&msg, NULL, 0, 0) != 0) {

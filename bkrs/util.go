@@ -26,6 +26,7 @@ type Config struct {
 		HandwritingButtonAlwaysVisible bool `json:"handwritingButtonAlwaysVisible"`
 		SearchSelectedOnShortcut       bool `json:"searchSelectedOnShortcut"`
 		AdaptiveScrollbarColor         bool `json:"adaptiveScrollbarColor"`
+		DisableBrowserAutocomplete     bool `json:"disableBrowserAutocomplete"`
 	} `json:"features"`
 
 	Shortcuts struct {
