@@ -147,17 +147,25 @@ function strokeOrderSearch() {
                     window.location.href = adress;
                 });
             })();
-        });
 
-    if(/.*chinesehideout.com\/.*/.test(window.location.href)) {
-        $("h3.panel-title").each(function (){
-            if($(this).text() === "Character Animation"){
-                $(this).parent().parent().attr("id", "scrollTo");
-                location.hash = "#" + "scrollTo";
-                window.scrollBy(0, -60);
+            if(/.*chinesehideout.com\/.*/.test(window.location.href)) {
+                function getBackKeyUp(e) {
+                    if (e.altKey && e.key === 'ArrowLeft') {
+                        e.preventDefault();
+                        history.back();
+                    }
+                }
+                document.addEventListener('keyup', getBackKeyUp, false);
+
+                $("h3.panel-title").each(function (){
+                    if($(this).text() === "Character Animation"){
+                        $(this).parent().parent().attr("id", "scrollTo");
+                        location.hash = "#" + "scrollTo";
+                        window.scrollBy(0, -60);
+                    }
+                });
             }
         });
-    }
 }
 
 window.addEventListener("DOMContentLoaded", function () {
